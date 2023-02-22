@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-name = 'pythonpackage'
+name = 'h5ify'
 version = '0.0.1'
 
 with open('README.md' ,'r') as f:
@@ -17,7 +17,7 @@ setup(
     author_email='mattdmould@gmail.com',
     license='MIT',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=['h5py'],
     python_requires='>=3.7',
     )
     
