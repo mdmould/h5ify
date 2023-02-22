@@ -17,6 +17,8 @@ def load(file):
 
             elif isinstance(val, h5py.Dataset):
                 d[key] = val[()]
+                
+        return d
 
     with h5py.File(file, 'r') as h:
         return recursive(h, {})
