@@ -42,4 +42,3 @@ def save(file, dic, *args, **kwargs):
     with h5py.File(file, 'a') as h:
         recursive(h, dic)
 
-
