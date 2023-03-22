@@ -31,8 +31,7 @@ def save(file, dic, *args, **kwargs):
         for key, val in d.items():
 
             if key == 'attrs':
-                for attr_key, attr_val in d[key].items():
-                    h.attrs[attr_key] = attr_val
+                h.attrs.update(d[key])
 
             elif isinstance(val, dict):
                 h.create_group(key)
