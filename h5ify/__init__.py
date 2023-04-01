@@ -40,6 +40,6 @@ def save(file, dic, *args, **kwargs):
             else:
                 h.create_dataset(key, *args, data=val, **kwargs)
 
-    with h5py.File(file, 'a') as h:
+    with h5py.File(file, 'a') if type(file) is str else file as h:
         recursive(h, dic)
 
