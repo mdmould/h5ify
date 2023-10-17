@@ -1,7 +1,7 @@
 import h5py
 
 
-def open(file, mode):
+def open(file, mode=None):
 
     return h5py.File(file, mode) if type(file) is str else file
 

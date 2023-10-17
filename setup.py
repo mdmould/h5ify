@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 name = 'h5ify'
-version = '0.0.5'
+version = '0.1'
 
 with open('README.md' ,'r') as f:
     long_description = f.read().strip()

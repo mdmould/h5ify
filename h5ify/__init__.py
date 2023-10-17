@@ -1,1 +1,2 @@
-from .h5ify import *
+from .h5ify import load, save
+
