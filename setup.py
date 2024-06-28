@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 name = 'h5ify'
-version = '0.1'
+version = '0.1.1'
 
 with open('README.md' ,'r') as f:
     long_description = f.read().strip()
@@ -18,6 +18,4 @@ setup(
     license='MIT',
     packages=find_packages(),
     install_requires=['h5py'],
-    python_requires='>=3.7',
     )
-    
