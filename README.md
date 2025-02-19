@@ -13,7 +13,7 @@ The `attrs` key can be used at each level of a nested dictionary to store metada
 ## Examples
 
 Make a small dictionary, then save it.
-```
+```python
 import h5ify
 
 d = {'x': 1.0, 'y': 2, 'z': [1, 2, 3], 'attrs': {'info': 'README example'}}
@@ -21,17 +21,17 @@ h5ify.save('tmp.h5', d)
 ```
 
 Load the saved dictionary.
-```
+```python
 dd = h5ify.load('tmp.h5')
 print(dd)
 ```
-```
+```python
 {'attrs': {'info': 'README example'}, 'x': 1.0, 'y': 2, 'z': array([1, 2, 3])}
 ```
 Note that lists/tuple are converted to numpy arrays by h5py.
 
 You can use the usual h5py API to open the stored HDF5 file.
-```
+```python
 import h5py
 
 with h5py.File('tmp.h5', 'r') as f:
@@ -40,7 +40,7 @@ with h5py.File('tmp.h5', 'r') as f:
     for key, val in f.attrs.items():
         print(key, val)
 ```
-```
+```python
 x 1.0
 y 2
 z [1 2 3]
@@ -48,24 +48,24 @@ info README example
 ```
 
 `h5ify` opens HDF5 files in `a` mode, meaning "Read/write if exists, create otherwise". You cannot save a dictionary with the same file name and `Dataset` keys.
-```
+```python
 h5ify.save('tmp.h5', d)
 ```
-```
+```python
 ValueError: Unable to synchronously create dataset (name already exists)
 ```
 
 You can append values that are not yet saved to the same file, however.
-```
+```python
 h5ify.save('tmp.h5', {'w': 42})
 print(h5ify.load('tmp.h5'))
 ```
-```
+```python
 {'attrs': {'info': 'README example'}, 'w': 42, 'x': 1.0, 'y': 2, 'z': array([1, 2, 3])}
 ```
 
 Any additional arguments or keyword arguments to `h5ify.save` are passed to the `create_dataset` function in `h5py`.
-```
+```python
 h5ify.save('tmp.h5', {'comp': [100]}, compression = 'gzip', compression_opts = 9)
 ```
 
