@@ -29,6 +29,6 @@ def _recursive_save(h, d, kwargs):
             h.attrs.update(d[key])
         elif isinstance(val, dict):
             h.create_group(key)
-            _recursive_save(h[key], val)
+            _recursive_save(h[key], val, kwargs)
         else:
             h.create_dataset(key, data = val, **kwargs)
