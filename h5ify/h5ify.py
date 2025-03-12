@@ -6,7 +6,7 @@ def load(file):
 
 def save(file, dic, mode = 'a', **kwargs):
     with _open(file, mode) as h:
-        _recursive_save(h, dic)
+        _recursive_save(h, dic, kwargs)
 
 def _open(file, mode = None):
     return h5py.File(file, mode) if type(file) is str else file
@@ -23,7 +23,7 @@ def _recursive_load(h, d):
             d[key] = val[()]
     return d
 
-def _recursive_save(h, d):
+def _recursive_save(h, d, kwargs):
     for key, val in d.items():
         if key == 'attrs':
             h.attrs.update(d[key])
