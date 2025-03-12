@@ -1,6 +1,6 @@
 # h5ify
 
-Save Python dictionaries to HDF5 files, and load HDF5 files into Python dictionaries.
+Save Python dictionaries into HDF5 files; load HDF5 files into Python dictionaries.
 
 The dictionary can be a nested dictionary of dictionaries, the terminal values of which are numbers, lists/tuples of numbers, arrays, etc. If the value of a key is not another dictionary, it is stored as a `Dataset` in the HDF5 file, otherwise it creates a new `Group`.
 
