@@ -18,7 +18,7 @@ def _recursive_load(h, d):
     for key, val in h.items():
         if isinstance(val, h5py.Group):
             d[key] = {}
-            recursive(val, d[key])
+            _recursive_load(val, d[key])
         elif isinstance(val, h5py.Dataset):
             d[key] = val[()]
     return d
@@ -29,6 +29,6 @@ def _recursive_save(h, d, kwargs):
             h.attrs.update(d[key])
         elif isinstance(val, dict):
             h.create_group(key)
-            recursive(h[key], val)
+            _recursive_save(h[key], val)
         else:
             h.create_dataset(key, data = val, **kwargs)
