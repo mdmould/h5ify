@@ -1,0 +1,22 @@
+[build-system]
+requires = [ "setuptools >= 61.0" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "h5ify"
+version = "0.2.0"
+authors = [
+  { name = "Matthew Mould", email = "mattdmould@gmail.com" },
+]
+description = "Save Python dictionaries into HDF5 files; load HDF5 files into Python dictionaries."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ['h5py']
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/mdmould/h5ify"
