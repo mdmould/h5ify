@@ -64,10 +64,18 @@ print(h5ify.load('tmp.h5'))
 {'attrs': {'info': 'README example'}, 'w': 42, 'x': 1.0, 'y': 2, 'z': array([1, 2, 3])}
 ```
 
-Any additional arguments or keyword arguments to `h5ify.save` are passed to the `create_dataset` function in `h5py`.
+Or you can overwrite by specifying the write mode:
+```python
+h5ify.save('tmp.h5', {**d, 'w': 42}, mode = 'r')
+print(h5ify.load('tmp.h5'))
+```
+```python
+{'attrs': {'info': 'README example'}, 'w': 42, 'x': 1.0, 'y': 2, 'z': array([1, 2, 3])}
+```
+
+Any additional keyword arguments to `h5ify.save` are passed to the `create_dataset` function in `h5py`.
 ```python
 h5ify.save('tmp.h5', {'comp': [100]}, compression = 'gzip', compression_opts = 9)
 ```
 
 That should cover it. Let me know if you have questions!
-
