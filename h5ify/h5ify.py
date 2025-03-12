@@ -1,11 +1,11 @@
 import h5py
 
 def load(file):
-    with open(file, 'r') as h:
+    with _open(file, 'r') as h:
         return _recursive_load(h, {})
 
 def save(file, dic, mode = 'a', **kwargs):
-    with open(file, mode) as h:
+    with _open(file, mode) as h:
         _recursive_save(h, dic)
 
 def _open(file, mode = None):
