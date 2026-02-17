@@ -66,7 +66,7 @@ print(h5ify.load('tmp.h5'))
 
 Or you can overwrite by specifying the write mode:
 ```python
-h5ify.save('tmp.h5', {**d, 'w': 42}, mode = 'r')
+h5ify.save('tmp.h5', {**d, 'w': 42}, mode = 'w')
 print(h5ify.load('tmp.h5'))
 ```
 ```python
